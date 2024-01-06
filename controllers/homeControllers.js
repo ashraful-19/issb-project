@@ -5,7 +5,7 @@ const {MilitaryCourse} = require('../models/militaryCourseModel');
 const {Payment} = require("../models/paymentModel");
 const getIndex = async (req, res) => {
   try {
-    res.render('issb/index');
+    res.render('issb/index.ejs');
     } 
     catch (error) {
    console.log(error.message);
@@ -57,7 +57,7 @@ const getIndex = async (req, res) => {
     const course = await MilitaryCourse.find({is_active: true}).sort({ course_id: -1 }).exec();
       console.log(course)
 
-    res.render('issb/course-list',{course});
+    res.render('issb/course-list.ejs',{course});
     } 
     catch (error) {
    console.log(error.message);
